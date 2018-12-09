@@ -1,0 +1,59 @@
+...output like::: ....ba>ab...cd>cd...jh>hj....sa>as....
+
+
+
+.MODEL SMALL
+
+.STACK 100H
+
+.DATA
+
+.CODE
+
+MAIN PROC 
+    MOV AH,2
+    MOV DL,'?'    ;PRINT ?
+    INT 21H
+    
+    MOV AH,1
+    INT 21H        ;TAKE 1ST  INPUT
+    MOV BL,AL
+    
+    MOV AH,1
+    INT 21H        ;TAKE 2ND INPUT
+    MOV CL,AL 
+    
+    MOV AH,2
+    MOV DL,10
+    INT 21H        ;NEWLINE
+    MOV DL,13
+    INT 21H
+    
+    CMP BL,CL      ;COMPARE BL & CL
+    JGE N1         ;JUMP IF GREATER THAN OR EQUAL
+    JMP N2         ;JUMP N2
+    
+    
+N1:
+    
+    MOV AH,2
+    MOV DL,CL
+    INT 21H        
+    MOV DL,BL
+    INT 21H
+    JMP EXIT       ;JUMP EXIT
+    
+N2:
+    
+    MOV AH,2
+    MOV DL,BL
+    INT 21H        
+    MOV DL,CL
+    INT 21H
+    JMP EXIT       ;JUMP EXIT
+    
+EXIT:
+    MOV AH,4CH
+    INT 21H        ;EXIT LOOP
+    MAIN ENDP
+END MAIN
