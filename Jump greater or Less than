@@ -1,0 +1,21 @@
+
+...simple comapring logig....
+mov ah,2
+mov bl,35h
+
+cmp bl,36h
+jg below 
+jl above
+
+above:
+mov dl,bl 
+int 21h 
+;int 21h
+jmp exit
+exit:
+mov ah,4ch
+int 21h 
+
+below:
+mov dl,al
+int 21h
