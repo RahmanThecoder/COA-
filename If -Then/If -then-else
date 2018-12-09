@@ -1,0 +1,26 @@
+..page..-98-101.....marut book page code ...if then and if then else.......
+
+
+...if then...
+
+;cmp ax,0
+;jnl end_if
+;neg ax
+;end_if:
+
+
+....if then else...
+
+mov ah,2
+cmp al,bl
+jnbe else_
+
+mov dl,al
+jmp display
+
+else_:
+mov dl,bl
+display:
+int 21h
+end_if:
+
