@@ -1,0 +1,26 @@
+....marut book page -97,98........
+
+
+
+mov cx, ax
+mov bx,cx
+jle next
+mov cx,bx
+
+next: 
+
+;top:
+;dec cx
+;jnz top
+;mov ax,bx
+            
+top:
+dec cx
+jnz bottom
+jmp exit
+bottom:
+jmp top
+exit:
+mov ax, bx
+;mov ah,4ch
+;int 21h
