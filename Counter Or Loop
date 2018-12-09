@@ -1,0 +1,44 @@
+
+
+
+; Chapter six marut book some code
+
+
+
+.model small
+.stack 100h
+.data
+.code
+main proc
+
+mov ah,2
+mov bx,10
+
+inc bx+5
+dec bx-5 
+          
+          
+mov dl,0 
+
+mov dl,0dh
+int 21h
+mov dl,0ah
+int 21h
+print_loop:
+
+int 21h
+inc dl
+dec bx
+jnz print_loop
+                
+ exit:
+ mov ah,4ch
+ int 21h
+ 
+ main endp
+end main
+
+                
+
+
+
